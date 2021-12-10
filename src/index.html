@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <title>Product Website</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link type="text/css" rel="stylesheet" href="./assets/css/slick.css" />
+  <link type="text/css" rel="stylesheet" href="./assets/css/slick-theme.css" />
+
+  <!-- nouislider -->
+  <link type="text/css" rel="stylesheet" href="./assets/css/nouislider.min.css" />
+
+  <!-- Font Awesome Icon -->
+  <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+</head>
+
+<body>
+  <app-root></app-root>
+  
+  <script>
+    window.onscroll = () => {
+      let scrollTop = window.scrollY;
+      let docHeight = document.body.offsetHeight;
+      let winHeight = window.innerHeight;
+      let scrollPercent = scrollTop / (docHeight - winHeight);
+      let scrollPercentRounded = Math.round(scrollPercent * 100);
+      let degrees = scrollPercent * 360;
+      document.querySelector(
+        ".pb"
+      ).style.background = `linear-gradient(to right, #eb3939 ${scrollPercentRounded}%, #eee ${scrollPercentRounded}%)`;
+    };
+  </script>
+</body>
+
+</html>

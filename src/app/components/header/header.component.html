@@ -1,0 +1,158 @@
+<!-- HEADER -->
+<header>
+  <!-- TOP HEADER -->
+  <div id="top-header">
+    <div class="container">
+      <div class="row align-items-baseline">
+        <div class="col-md-4">
+          <ul class="header-links me-auto">
+            <li><a href="#"><i class="fa fa-dollar"></i>Fa</a></li>
+            <li><a routerLink="/login"><i class="fa fa-user-o"></i>ورود</a></li>
+            <li><a href="#"><i class="fa fa-user-o"></i>ثبت نام</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-8">
+          <ul class="header-links text-md-end">
+            <li><a href="#"><i class="fa fa-phone"></i>+989147162064</a></li>
+            <li><a href="#"><i class="fa fa-envelope-o"></i>amirah3624@gmail.com</a></li>
+            <li><a href="#"><i class="fa fa-map-marker"></i>تهران، بزرگراه نواب صفوی</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /TOP HEADER -->
+
+  <!-- MAIN HEADER -->
+  <div id="header">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row align-items-center">
+        <!-- LOGO -->
+        <div class="col-12 col-md-2 col-lg-3">
+          <div class="header-logo">
+            <a routerLink="/" class="logo">
+              <!-- <img class="img-fluid" src="../../../assets/img/logo.png" alt=""> -->
+              <h2 class="text-white">آنی شاپ</h2>
+            </a>
+          </div>
+        </div>
+        <!-- /LOGO -->
+
+        <!-- SEARCH BAR -->
+        <div class="col-12 col-md-6">
+          <div class="header-search">
+            <form>
+              <select class="input-select">
+                <option value="0">همه دسته بندی ها</option>
+                <option value="1">لباس</option>
+                <option value="2">تکنولوژی</option>
+              </select>
+              <input class="input" type="search" placeholder="جستجو ...">
+              <button class="search-btn"><i class="fa fa-search me-1"></i>جستجو</button>
+            </form>
+          </div>
+        </div>
+        <!-- /SEARCH BAR -->
+
+        <!-- ACCOUNT -->
+        <div class="col-12 col-md-4 col-lg-3">
+          <div class="header-ctn mt-4 mt-md-0">
+            <!-- Wishlist -->
+            <div>
+              <a href="#">
+                <i class="fa fa-heart-o"></i>
+                <span>مورد علاقه</span>
+                <div class="qty">0</div>
+              </a>
+            </div>
+            <!-- /Wishlist -->
+
+            <!-- Cart -->
+            <div class="dropdown">
+              <a class="dropdown-toggle" role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fa fa-shopping-cart"></i>
+                <span>سبد خرید</span>
+                <span class="qty">{{totalItems}}</span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <div class="cart-list" *ngIf="products.grandTotal !== 0">
+                  <div class="product-widget" *ngFor="let p of products; let i=index">
+                    <div class="product-img">
+                      <img src="{{p.image}}" alt="" width="20px">
+                    </div>
+                    <div class="product-body">
+                      <h3 class="product-name"><a href="#">{{p.title}}</a></h3>
+                      <h4 class="product-price"><span class="qty"></span>{{p.price |
+                        currency:'USD'}}</h4>
+                    </div>
+                    <button class="delete" (click)="DeleteProductFromCart(p)">
+                      <i class="fa fa-close"></i></button>
+                  </div>
+
+
+                </div>
+                <div class="cart-summary">
+                  <small>{{products.grandTotal !== 0}} Item(s) selected</small>
+                  <h5>TOTAL : {{grandTotal | currency: "IRR"}}</h5>
+                </div>
+                <div class="cart-btns">
+                  <a routerLink="/cart"><i class="fa fa-shopping-cart me-2"></i>سبد خرید</a>
+                  <a routerLink="/checkout"> <i class="fa fa-arrow-circle-left me-2"></i>بررسی</a>
+                </div>
+
+              </ul>
+            </div>
+
+
+            <!-- Menu Toogle -->
+            <div class="menu-toggle">
+              <a type="button">
+                <i class="fa fa-bars"></i>
+                <span>منو</span>
+              </a>
+            </div>
+            <!-- /Menu Toogle -->
+          </div>
+        </div>
+        <!-- /ACCOUNT -->
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </div>
+  <!-- /MAIN HEADER -->
+
+  <!-- NAVIGATION -->
+  <nav id="navigation">
+    <!-- container -->
+    <div class="container">
+      <!-- responsive-nav -->
+      <div id="responsive-nav">
+        <div class="text-end">
+          <button class="d-lg-none me-3" id="btn-close" type="button">
+            <i class="fa fa-close"></i>
+          </button>
+        </div>
+        <!-- NAV -->
+        <ul class="main-nav nav p-4">
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/"><i
+                class="fa fa-home"></i>صفحه اصلی</a></li>
+          <li routerLinkActive="active"><a routerLink='/thank-you'><i class="fa fa-align-justify"></i>دسته بندی ها</a>
+          </li>
+          <li routerLinkActive="active"><a routerLink="/cart"><i class="fa fa-shopping-cart"></i>سبد خرید</a></li>
+          <li routerLinkActive="active"><a routerLink="/check-out"><i class="fa fa-phone-square"></i>ارتباط با ما</a>
+          </li>
+        </ul>
+        <!-- /NAV -->
+      </div>
+      <!-- /responsive-nav -->
+    </div>
+    <!-- /container -->
+  </nav>
+  <!-- /NAVIGATION -->
+</header>
+<!-- /HEADER -->

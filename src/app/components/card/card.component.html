@@ -1,0 +1,59 @@
+<ng-container *ngIf="products.length != 0">
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>ردیف</th>
+                            <th>سربرگ</th>
+                            <th>قیمت</th>
+                            <th>توضیحات</th>
+                            <th>موضوع</th>
+                            <th>عکس</th>
+                            <th>امتیاز</th>
+                            <th>تعداد</th>
+                            <th>جمع کل</th>
+                            <th>عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of products; let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{item.title.substr(0, 40)}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.description.substr(0, 40)}}</td>
+                            <td>{{item.category}}</td>
+                            <td><img width="50px" height="50px" src="{{item.image}}" alt="item.title"></td>
+                            <td>{{item.rating.rate}}</td>
+                            <td>{{item.rating.count}}</td>
+                            <td>{{item.total}}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="removeItem(item)">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="w-100">
+                    <button (click)="emptyCart()" class="btn btn-danger">پاک کردن</button>
+                    <button routerLink="/" class="btn btn-primary">خرید بیشتر</button>
+                    <button class="btn btn-success">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="products.length == 0">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">سبد خرید من</h5>
+        </div>
+        <div class="center">
+            <h4>Your cart is empty</h4>
+            <h6>Add item to it now</h6>
+            <button class="btn btn-primary" routerLink="/">Shop New</button>
+        </div>
+    </div>
+</ng-container>
